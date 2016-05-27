@@ -3,6 +3,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias brc='vi ~/.bashrc;source ~/.bashrc'
 export TZ=America/New_York
+alias tmux='tmux new-session -A -s main'
 
 # export PATH=$HOME/.linuxbrew/sbin:$PATH
 export PATH=$HOME/.linuxbrew/bin:$PATH
