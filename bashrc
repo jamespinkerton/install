@@ -1,12 +1,13 @@
 alias n=nvim
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-export PATH=$HOME/.linuxbrew/sbin:$HOME/.linuxbrew/bin:$PATH
+alias brc='vi ~/.bashrc;source ~/.bashrc'
 export TZ=America/New_York
 
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+# export PATH=$HOME/.linuxbrew/sbin:$PATH
+export PATH=$HOME/.linuxbrew/bin:$PATH
+export MANPATH=$HOME/.linuxbrew/share/man:$MANPATH
+export INFOPATH=$HOME/.linuxbrew/share/info:$INFOPATH
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local

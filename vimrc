@@ -23,7 +23,7 @@ nmap <C-w> :q<CR>
 imap <C-s> <esc>:w<CR>
 imap <C-w> <esc>:q<CR>
 
-exec "source " . current_path . "/nim_stuff.vim"
+exec "source " . current_path . "/nim.vim"
 
 call plug#begin(vim_folder . "/plugged")
     Plug 'flazz/vim-colorschemes'
