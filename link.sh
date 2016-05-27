@@ -5,7 +5,8 @@ if [ -d "$DOTFILES" ]; then
     exit 1
 fi
 mkdir -p $DOTFILES
-GITDIR=$(dirname $(realpath $0))
+# GITDIR=$(dirname $(realpath $0)) Does not work on macs
+GITDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 link_file () {
     cp $1 $DOTFILES
     mv $1 $TEMPDOTFILES
@@ -18,3 +19,5 @@ link_file ~/.vimrc vimrc
 link_file ~/.config/nvim/init.vim vimrc
 link_file ~/.ssh/config ssh_config
 link_file ~/.tmux.conf tmux.conf
+
+source ~/.bashrc
