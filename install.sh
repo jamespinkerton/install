@@ -5,7 +5,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master
 export PATH=$HOME/.linuxbrew/bin:$PATH
 brew install neovim/neovim/neovim mailutils
 brew install tmux wget curl python python3 hg emacs htop
-pip3 install numpy pandas scikit-learn ipython seaborn matplotlib
+pip3 install numpy pandas scikit-learn ipython seaborn matplotlib mypy-lang
 pip install --user powerline-status
 pip3 install --user powerline-status
 git config --global credential.helper cache
