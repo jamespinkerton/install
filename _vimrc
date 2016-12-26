@@ -11,17 +11,12 @@ if empty(glob(vim_folder . "/autoload/plug.vim"))
 endif
 set tabstop=4 shiftwidth=4 expandtab
 autocmd Filetype c setlocal ts=2 sw=2 expandtab
+autocmd Filetype h setlocal ts=2 sw=2 expandtab
+autocmd Filetype nim setlocal ts=2 sw=2 expandtab
 set mouse=
 set noshowmode
 " set number relativenumber
-" tnoremap <Esc> <C-\><C-n><H>
-nnoremap <C-m> :terminal<CR>
 inoremap <C-z> <esc><C-z>
-map <F8> :! make; bin/push-to-sim home.jamesp.cdft1:~<CR>
-nmap <C-s> :w<CR>
-nmap <C-w> :q<CR>
-imap <C-s> <esc>:w<CR>
-imap <C-w> <esc>:q<CR>
 
 exec "source " . current_path . "/nim.vim"
 
@@ -45,9 +40,8 @@ call plug#begin(vim_folder . "/plugged")
     " Plug 'ctrlpvim/ctrlp.vim'
     "     let g:ctrlp_custom_ignore = { 'dir' : 'c/obj/*\|/home/jamesp/lustre\|/home/jamesp/libraries/neovim' }
     Plug 'davidhalter/jedi-vim'
-    Plug 'majutsushi/tagbar'
-        nmap <F9> :TagbarToggle<CR>
-        " let g:tagbar_ctags_bin='~/jongman_config/bin/run-ctags'
+    " Plug 'majutsushi/tagbar'
+    "     nmap <F9> :TagbarToggle<CR>
     Plug 'tomtom/tcomment_vim'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

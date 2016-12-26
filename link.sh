@@ -8,7 +8,7 @@ mkdir -p $BACKUP
 for f in $(cd $GITDIR && ls _*); do
     SOURCE=$GITDIR/$f
     DEST=~/.${f:1}
-    [[ -e $DEST ]] && cp $DEST $BACKUP
+    [[ -e $DEST ]] && cp -r $DEST $BACKUP
     rm -rf $DEST
     ln -s $SOURCE $DEST
 done
