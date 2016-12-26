@@ -1,23 +1,16 @@
-TEMPDOTFILES=$HOME/.dofile.backup.temp
-DOTFILES=$HOME/.dotfile.backup/
-if [ -d "$DOTFILES" ]; then
-    echo "Backup folder already exists"
-    exit 1
-fi
-mkdir -p $DOTFILES
-# GITDIR=$(dirname $(realpath $0)) Does not work on macs
-GITDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-link_file () {
-    cp $1 $DOTFILES
-    mv $1 $TEMPDOTFILES
-    ln -s $GITDIR/$2 $1
-    rm -rf $TEMPDOTFILES
-}
+set -o errexit
 
-link_file ~/.bashrc bashrc
-link_file ~/.vimrc vimrc
-link_file ~/.config/nvim/init.vim vimrc
-link_file ~/.ssh/config ssh_config
-link_file ~/.tmux.conf tmux.conf
+GITDIR=$(cd $(dirname $0) && pwd)
+BACKUP=$HOME/.dotfiles.backup/
+rm -rf $BACKUP
+mkdir -p $BACKUP
+
+for f in $(cd $GITDIR && ls _*); do
+    SOURCE=$GITDIR/$f
+    DEST=~/.${f:1}
+    [[ -e $DEST ]] && cp $DEST $BACKUP
+    rm -rf $DEST
+    ln -s $SOURCE $DEST
+done
 
 source ~/.bashrc
