@@ -1,4 +1,5 @@
-set -o errexit
+#!/bin/bash
+set -o errexit -o nounset
 
 GITDIR=$(cd $(dirname $0) && pwd)
 BACKUP=$HOME/.dotfiles.backup/
