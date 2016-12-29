@@ -1,24 +1,25 @@
 #!/bin/bash
 set -o errexit -o nounset
 
-GITDIR=$(cd $(dirname $0) && pwd)
-$GITDIR/link.sh
-
-PACKAGES="git hg tmux wget curl htop python vim emacs"
 if [[ -n "$(command -v apt-get)" ]]; then
-    sudo apt-get install python3
-    sudo apt-get install $PACKAGES mailutils
+    sudo apt-get -y update
+    sudo apt-get -y install build-essential curl git python-setuptools ruby
 elif [[ -n "$(command -v yum)" ]]; then
     sudo yum -y update
-    sudo yum -y install epel-release
-    sudo yum -y install python35 python35-setuptools
-    sudo easy_install-3.5 pip
-    sudo yum -y install $PACKAGES mailx
+    sudo yum groupinstall 'Development Tools' && sudo yum install curl git irb python-setuptools ruby
 fi
 
-pip3 install --user scipy numpy pandas scikit-learn ipython seaborn matplotlib mypy-lang powerline-status
+[[ ! -d ~/.linuxbrew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+export PATH=$HOME/.linuxbrew/bin:$PATH
+brew install git hg tmux wget curl htop python python3 vim emacs mailutils
+
+pip3 install --upgrade pip
+pip3 install --user scipy numpy pandas scikit-learn ipython jupyter seaborn matplotlib mypy-lang powerline-status
+
+GITDIR=$(cd $(dirname $0) && pwd)
+$GITDIR/link.sh
 
 source ~/.bashrc
 
 # Won't work for some reason:
-# vi +PlugInstall +qa
+sudo vi +PlugInstall +qa
