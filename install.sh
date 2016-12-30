@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o errexit -o nounset
+set -o errexit -o nounset -o xtrace
 
 if [[ -n "$(command -v apt-get)" ]]; then
     sudo apt-get -y update
@@ -11,15 +11,19 @@ fi
 
 [[ ! -d ~/.linuxbrew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 export PATH=$HOME/.linuxbrew/bin:$PATH
-brew install git hg tmux wget curl htop python python3 vim emacs mailutils
 
+brew install python python3
 pip3 install --upgrade pip
 pip3 install --user scipy numpy pandas scikit-learn ipython jupyter seaborn matplotlib mypy-lang powerline-status
+
+brew install gcc git hg tmux wget htop python python3 emacs mailutils
+# brew install gawk glibc # gawk is a prereq but seems to have problems in debian
+brew install neovim/neovim/neovim # Won't work in redhat for some reason???
 
 GITDIR=$(cd $(dirname $0) && pwd)
 $GITDIR/link.sh
 
-source ~/.bashrc
+brew install curl vim
+vi +PlugInstall +qa # Won't work in redhat for some reason???
 
-# Won't work for some reason:
-sudo vi +PlugInstall +qa
+source ~/.bashrc
