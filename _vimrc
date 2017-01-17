@@ -3,6 +3,10 @@ if empty(glob(vim_folder . "/autoload/plug.vim"))
     execute "! curl -fLo " . vim_folder . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 endif
 set expandtab
+set clipboard=unnamed
+if ! has('nvim')
+    set clipboard=unnamed
+endif
 set tabstop=4 shiftwidth=4
 autocmd Filetype c setlocal tabstop=2 shiftwidth=2
 autocmd Filetype h setlocal tabstop=2 shiftwidth=2
@@ -12,6 +16,7 @@ set mouse=
 set noshowmode
 inoremap <C-z> <esc><C-z>
 syntax on
+set t_Co=256
 set nocompatible
 set hlsearch
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
@@ -120,7 +125,6 @@ call plug#begin(vim_folder . "/plugged")
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         map <C-n> :NERDTreeToggle<CR>
     Plug 'vim-airline/vim-airline'
-        set t_Co=256
         set encoding=utf-8
 		set laststatus=2
         set ttimeoutlen=50
