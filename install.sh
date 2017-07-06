@@ -11,24 +11,25 @@ fi
 
 [[ ! -d /home/linuxbrew/.linuxbrew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+brew install gcc git hg tmux wget htop emacs curl vim || echo "Stuff was already installed?"
 
-brew install python python3
-pip3 install --upgrade pip
-pip3 install --user scipy numpy pandas scikit-learn ipython jupyter seaborn matplotlib mypy-lang powerline-status
-
-#brew install texlive
-#tlmgr update --self
-#tlmgr install texliveonfly
-
-brew install gcc git hg tmux wget htop python python3 emacs
+# Not working righ now
+# brew install neovim # Won't work in redhat for some reason???
 # brew install mailutils
 # brew install gawk glibc # gawk is a prereq but seems to have problems in debian
-# brew install neovim/neovim/neovim # Won't work in redhat for some reason???
+# brew install texlive && tlmgr update --self && tlmgr install texliveonfly
+
+if [[ ! -d ~/miniconda3 ]]; then
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -P ~ -O miniconda.sh
+    /bin/bash ~/miniconda.sh -b
+    rm -f ~/miniconda.sh
+fi
+export PATH=$HOME/miniconda3/bin:$PATH
+conda update --all python=3 --yes
+conda install anaconda --yes #Will anaconda be updated?
 
 GITDIR=$(cd $(dirname $0) && pwd)
 $GITDIR/link.sh
 
-brew install curl vim
 vi +PlugInstall +qa # Won't work in redhat for some reason???
-
-source ~/.bashrc
+source ~/.bash_profile
