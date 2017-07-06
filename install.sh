@@ -9,8 +9,8 @@ elif [[ -n "$(command -v yum)" ]]; then
     sudo yum groupinstall 'Development Tools' && sudo yum install curl git irb python-setuptools ruby
 fi
 
-[[ ! -d ~/.linuxbrew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-export PATH=$HOME/.linuxbrew/bin:$PATH
+[[ ! -d /home/linuxbrew/.linuxbrew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 brew install python python3
 pip3 install --upgrade pip
