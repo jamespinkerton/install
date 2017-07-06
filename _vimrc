@@ -138,7 +138,7 @@ call plug#begin(vim_folder . "/plugged")
         let g:SuperTabDefaultCompletionType = "<C-n>"
     " Plug 'ctrlpvim/ctrlp.vim'
     "     let g:ctrlp_custom_ignore = { 'dir' : 'c/obj/*\|/home/jamesp/lustre\|/home/jamesp/libraries/neovim' }
-    Plug 'davidhalter/jedi-vim'
+    " Plug 'davidhalter/jedi-vim'
     Plug 'tomtom/tcomment_vim'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

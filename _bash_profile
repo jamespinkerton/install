@@ -1,0 +1,4 @@
+[[ -r ~/.bashrc ]] && source ~/.bashrc
+if [[ $- == *i* && -z "$TMUX" ]]; then
+    exec tmux new-session -A -s main
+fi

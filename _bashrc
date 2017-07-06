@@ -1,25 +1,19 @@
+[[ $- != *i* ]] && return
+
 alias ls='ls --color=auto'
 alias grep='grep -n --color=auto'
 alias gg="git log --oneline --all --graph --decorate --color"
 alias brc='vi ~/.bashrc;source ~/.bashrc'
 alias n='nvim'
-alias texliveonfly="$(brew --cellar --prefix texlive)/20170111/texmf-dist/scripts/texliveonfly/texliveonfly.py"
+# alias texliveonfly="$(brew --cellar --prefix texlive)/20170111/texmf-dist/scripts/texliveonfly/texliveonfly.py"
 
 git config --global credential.helper cache
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
-export PROMPT_COMMAND=__prompt_command
-function __prompt_command() {
-    local EXIT="$?"
-    local RCol='\[\e[0m\]' #resets color
-    local Red='\[\e[0;31m\]'
-    local Green='\[\e[0;32m\]'
-    if [ $EXIT != 0 ]; then
-        PS1="${Red}\w$ ${RCol}"
-    else
-        PS1="${Green}\w$ ${RCol}"
-    fi
-}
+SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
+PS1="$SMILEY \[\e[36m\] \h $ \[\e[37m\]"
+PROMPT_COMMAND=
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
