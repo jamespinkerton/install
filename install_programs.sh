@@ -28,8 +28,5 @@ export PATH=$HOME/miniconda3/bin:$PATH
 conda update --all python=3 --yes
 conda install anaconda --yes #Will anaconda be updated?
 
-GITDIR=$(cd $(dirname $0) && pwd)
-$GITDIR/link.sh
-
 vi +PlugInstall +qa # Won't work in redhat for some reason???
 source ~/.bash_profile
