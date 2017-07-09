@@ -12,7 +12,7 @@ fi
 [[ ! -d /home/linuxbrew/.linuxbrew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 
 if [[ ! -d ~/miniconda3 ]]; then
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -P ~ -O miniconda.sh
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
     /bin/bash ~/miniconda.sh -b
     rm -f ~/miniconda.sh
 fi
@@ -28,8 +28,8 @@ brew install gcc git hg tmux wget htop emacs curl vim || echo "Stuff was already
 # brew install gawk glibc # gawk is a prereq but seems to have problems in debian
 # brew install texlive && tlmgr update --self && tlmgr install texliveonfly
 
-export PATH=$HOME/miniconda3/bin:$PATH
-conda update --all python=3 --yes
-conda install anaconda --yes #Will anaconda be updated?
+# export PATH=$HOME/miniconda3/bin:$PATH
+# conda update --all python=3 --yes
+# conda install anaconda --yes #Will anaconda be updated?
 
 vi +PlugInstall +qa # Won't work in redhat for some reason???
