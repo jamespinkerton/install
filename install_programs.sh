@@ -1,37 +1,31 @@
 #!/bin/bash
 set -o errexit -o nounset -o xtrace
 
-# ****** Install Linuxbrew ******
 if [[ -n "$(command -v apt-get)" ]]; then
     sudo apt-get -y update
     sudo apt-get -y install build-essential curl file git python-setuptools ruby
+    sudo apt-get -y install llvm clang gcc libc6 git mercurial tmux wget htop emacs curl vim neovim python-neovim python3-neovim mailutils
+    # sudo apt-get -y install texlive
 elif [[ -n "$(command -v yum)" ]]; then
     sudo yum -y update
     sudo yum groupinstall 'Development Tools' && sudo yum install curl git irb python-setuptools ruby
+    sudo yum -y groupinstall gcc git mercurial tmux wget htop emacs curl vim
+elif
+    echo "Warning. Neither yum nor apt-get is installed."
 fi
 
-[[ ! -d /home/linuxbrew/.linuxbrew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-
-export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-brew install gcc git hg tmux wget htop emacs curl vim || echo "Stuff was already installed?"
-# Not working righ now
-# brew install neovim # Won't work in redhat for some reason???
-# brew install mailutils
-# brew install gawk glibc # gawk is a prereq but seems to have problems in debian
-# brew install texlive && tlmgr update --self && tlmgr install texliveonfly
+# tlmgr update --self && tlmgr install texliveonfly
 
 # ****** Install MiniConda ******
-if [[ ! -d ~/miniconda3 ]]; then
+if [[ ! $(which conda) ]]; then
+    rm -f ~/miniconda.sh
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
     /bin/bash ~/miniconda.sh -b
     rm -f ~/miniconda.sh
 fi
-# Not working:
-# bash "$(curl -fsSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh)" -b
-
-# export PATH=$HOME/miniconda3/bin:$PATH
-# conda update --all python=3 --yes
-# conda install anaconda --yes #Will anaconda be updated?
+export PATH=$HOME/miniconda3/bin:$PATH
+conda update --all python=3 -y
+conda install ipython -y
 
 # ********** Misc. **********
 source ~/.bash_profile
