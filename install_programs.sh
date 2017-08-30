@@ -4,13 +4,13 @@ set -o errexit -o nounset -o xtrace
 if [[ -n "$(command -v apt-get)" ]]; then
     sudo apt-get -y update
     sudo apt-get -y install build-essential curl file git python-setuptools ruby
-    sudo apt-get -y install llvm clang gcc libc6 git mercurial tmux wget htop emacs curl vim neovim python-neovim python3-neovim mailutils
+    sudo apt-get -y install cmake llvm clang gcc libc6 git mercurial tmux wget htop emacs curl vim neovim mailutils
     # sudo apt-get -y install texlive
 elif [[ -n "$(command -v yum)" ]]; then
     sudo yum -y update
     sudo yum groupinstall 'Development Tools' && sudo yum install curl git irb python-setuptools ruby
     sudo yum -y groupinstall gcc git mercurial tmux wget htop emacs curl vim
-elif
+else
     echo "Warning. Neither yum nor apt-get is installed."
 fi
 
