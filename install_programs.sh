@@ -1,17 +1,15 @@
 #!/bin/bash
 set -o errexit -o nounset -o xtrace
 
-if [[ -n "$(command -v apt-get)" ]]; then
-    sudo apt-get -y update
-    sudo apt-get -y install build-essential llvm clang gcc libc6 git mercurial tmux wget htop emacs curl vim neovim python-neovim python3-neovim mailutils python-setuptools
-    # sudo apt-get -y install texlive
-elif [[ -n "$(command -v yum)" ]]; then
-    sudo yum -y update
-    sudo yum groupinstall 'Development Tools' && sudo yum install curl git python-setuptools gcc git mercurial tmux wget htop emacs curl vim
-elif
-    echo "Warning. Neither yum nor apt-get is installed."
+if [[ -z "$(command -v apt-get)" ]]; then
+    echo "This only works with apt-get."
+    exit 1
 fi
 
+sudo apt-get -y install build-essential curl file git python-setuptools ruby cmake llvm clang gcc libc6 git mercurial tmux wget htop emacs curl vim neovim mailutils
+
+# Install latex
+# sudo apt-get -y install texlive
 # tlmgr update --self && tlmgr install texliveonfly
 
 # ****** Install MiniConda ******
