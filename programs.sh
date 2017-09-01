@@ -2,8 +2,7 @@
 
 set -o errexit -o nounset -o xtrace
 
-sudo apt-get -y \
-    install \
+sudo apt-get -y install \
     build-essential \
     curl \
     file \
