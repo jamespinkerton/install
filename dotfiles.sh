@@ -5,7 +5,7 @@
 
 set -o errexit -o nounset -o xtrace
 
-DOTFILES_REPO=git@github.com:jamespinkerton/dotfiles.git
+DOTFILES_REPO=$1
 git clone --bare $DOTFILES_REPO $HOME/.cfg
 git --git-dir=$HOME/.cfg/ config status.showUntrackedFiles no
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
