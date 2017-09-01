@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -o errexit -o nounset -o xtrace
+
 if [[ ! $(which conda) ]]; then
     MINI_LOC=~/miniconda.sh
     rm -f $MINI_LOC
