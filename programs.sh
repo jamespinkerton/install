@@ -6,7 +6,6 @@ sudo apt-get -y install \
     build-essential \
     curl \
     file \
-    git \
     python-setuptools \
     ruby \
     cmake \
@@ -20,7 +19,8 @@ sudo apt-get -y install \
     wget \
     htop \
     emacs \
-    curl \
     vim \
-    neovim \
     mailutils \
+    mosh \
+    htop \
+    # neovim \
