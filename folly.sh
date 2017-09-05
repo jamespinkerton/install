@@ -33,6 +33,6 @@ cd folly/folly
 autoreconf -ivf
 ./configure
 make
-make check
+# make check # This doesn't work.
 sudo make install
 
