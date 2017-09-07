@@ -23,4 +23,5 @@ sudo apt-get -y install \
     mailutils \
     mosh \
     htop \
+    xsel \
     # neovim \
