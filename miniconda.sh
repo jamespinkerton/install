@@ -12,3 +12,4 @@ fi
 MINICONDA=$HOME/miniconda3/bin
 $MINICONDA/conda update -y --all python=3
 $MINICONDA/conda install -y pandas numpy ipython
+$MINICONDA/pip install install neovim
