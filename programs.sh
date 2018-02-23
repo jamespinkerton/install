@@ -24,4 +24,6 @@ sudo apt-get -y install \
     mosh \
     htop \
     xsel \
+    silversearcher-ag \
+
     # neovim \
