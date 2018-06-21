@@ -2,15 +2,15 @@
 
 set -o errexit -o nounset -o xtrace
 
+PREFIX_DIR=$HOME/.miniconda3
 if [[ ! $(which conda) ]]; then
-    MINI_LOC=~/miniconda.sh
+    MINI_LOC=/tmp/miniconda.sh
     rm -f $MINI_LOC
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $MINI_LOC
-    /bin/bash $MINI_LOC -b
+    /bin/bash $MINI_LOC -b -p $PREFIX_DIR
     rm -f $MINI_LOC
 fi
-MINICONDA=$HOME/miniconda3/bin
-$MINICONDA/conda update -y --all python=3
-$MINICONDA/conda install -y pandas numpy ipython
-$MINICONDA/pip install neovim
+$PREFIX_DIR/bin/conda update -y --all python=3
+$PREFIX_DIR/bin/conda install -y pandas numpy ipython
+$PREFIX_DIR/bin/pip install neovim
 pip install --upgrade pip
