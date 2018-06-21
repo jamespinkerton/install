@@ -2,4 +2,5 @@
 
 set -o errexit -o nounset -o xtrace
 
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+VERSION=$(git version | awk '{print $3}')
+curl https://raw.githubusercontent.com/git/git/v$VERSION/contrib/completion/git-completion.bash -o ~/.git-completion.bash
