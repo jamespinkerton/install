@@ -4,6 +4,7 @@ set -o errexit -o nounset -o xtrace
 
 sudo apt-get -y install \
     build-essential \
+    bash-completion \
     curl \
     file \
     python-setuptools \
@@ -14,6 +15,7 @@ sudo apt-get -y install \
     gcc \
     libc6 \
     git \
+    git-core \
     mercurial \
     tmux \
     wget \
