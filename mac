@@ -15,3 +15,4 @@ brew install neovim
 brew install cask
 brew cask install google-chrome
 brew cask install iterm2
+brew cask install signal
