@@ -4,7 +4,14 @@
 
 brew install mobile-shell
 brew install coreutils
+brew install git
 
 brew install bash
 sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 chsh -s /usr/local/bin/bash
+
+brew install neovim
+
+brew install cask
+brew cask install google-chrome
+brew cask install iterm2
