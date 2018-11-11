@@ -14,7 +14,13 @@ brew install neovim
 
 brew install cask
 brew cask install google-chrome
+
 brew cask install iterm2
+# Specify the preferences directory
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.config/iterm2"
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
 brew cask install signal
 brew cask install spotify
 brew cask install dashlane
