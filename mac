@@ -13,6 +13,7 @@ defaults write com.apple.Dock autohide-delay -float 0
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write -g NSToolbarFullScreenAnimationDuration -float 0
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM h:mm a"
 defaults write com.apple.dock launchanim -bool false: killall Dock
 defaults write NSGlobalDomain _HIHideMenuBar -bool true; killall Finder
 
