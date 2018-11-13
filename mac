@@ -1,11 +1,28 @@
 #!/bin/bash
 
+defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.TextEdit RichText -int 0
+defaults write com.apple.finder QuitMenuItem -bool true; killall Finder
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+defaults write -g NSWindowResizeTime -float 0.001
+defaults write com.apple.dashboard mcx-disabled -boolean true; killall Dock
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+defaults write com.apple.finder CreateDesktop -bool false; killall Finder
+defaults write com.apple.Dock autohide-delay -float 0
+defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write -g NSToolbarFullScreenAnimationDuration -float 0
+defaults write com.apple.dock launchanim -bool false: killall Dock
+defaults write NSGlobalDomain _HIHideMenuBar -bool true; killall Finder
+
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install bash
 sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 chsh -s /usr/local/bin/bash
 
+brew install tmux
 brew install mobile-shell
 brew install coreutils
 brew install git
