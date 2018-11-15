@@ -1,1 +1,5 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o xtrace
+
 go get github.com/google/git-appraise/git-appraise
