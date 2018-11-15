@@ -27,7 +27,6 @@ brew install tmux
 brew install mobile-shell
 brew install coreutils
 brew install git
-
 brew install neovim
 
 brew install cask
