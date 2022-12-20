@@ -51,3 +51,5 @@ dependencies:
   - openssl
   - rust
   - bash-completion
+  - ipython
+  - jupyterlab
