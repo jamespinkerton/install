@@ -4,5 +4,5 @@ set -o errexit -o nounset -o xtrace
 
 sudo apt-get install -y fuse
 mkdir -p ~/.neovim/bin
-curl -o ~/.neovim/bin/nvim -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+curl -o ~/.neovim/bin/nvim -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x ~/.neovim/bin/nvim
