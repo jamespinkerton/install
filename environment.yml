@@ -53,3 +53,4 @@ dependencies:
   - bash-completion
   - ipython
   - jupyterlab
+  - gh
