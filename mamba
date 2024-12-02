@@ -5,6 +5,6 @@ set -o errexit -o nounset -o xtrace
 PREFIX_DIR=/mnt/disks/condaman/mamba
 TMP_LOC=/tmp/mamba.sh
 rm -f $TMP_LOC
-wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh -O $TMP_LOC
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -O $TMP_LOC
 /bin/bash $TMP_LOC -b -p $PREFIX_DIR
 rm -f $TMP_LOC
